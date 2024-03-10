@@ -5,12 +5,12 @@
 
 Landing page para Corretores. Desenvolvido para portifólio.
 
-🔗 [Veja como seria seu site!](https://rods25.github.io/corretor-space/)
-
+🔗 [Veja como seria seu site!](https://rods25.github.io/espaco-corretor/)
+<!-- 
 >EN-US
 
 Landing page for brokers. Developed for portfolio.
-🔗 [See it your website!](https://rods25.github.io/corretor-space/)
+🔗 [See it your website!](https://rods25.github.io/corretor-space/) -->
 
 ## ⚙️ Tech
 
