@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<script>
+    $(document).ready(function () {
+    $(".form-send").click(function (e) {
+        e.preventDefault();
+        var form = new FormData($("#formulario")[0]);
+        console.log("clicou")
+        console.log(form);
+        $.ajax({
+            url: 'mail.php',
+            method: 'post',
+            dataType: 'json',
+            cache: false,
+            processData: false,
+            contentType: false,
+            data: form,
+            timeout: 8000,
+            success: function(mensagem){
+                console.log("Deu certo")
+            },
+            error: function (){
+                console.log("deu errado")
+            }
+        })
+    });
+})
+</script>
+<body>
+    <form id="formulario" class="formulario" name="formulario">
+        <div class="form-wrapper">
+            <div class="form-2col">
+                <div class="input-wrapper">
+                    <label for="name">Nome<span class="required" id="name">*</span></label>
+                    <input 
+                        type="text" 
+                        id="name"
+                        placeholder="Seu nome completo"
+                        name="name"
+                        required>
+                </div>
+                        
+                <div class="input-wrapper">
+                    <label for="name">Telefone<span class="required" id="phone">*</span></label>
+                    <input 
+                        type="number" 
+                        id="phone"
+                        name="phone"
+                        placeholder="Seu número (com DDD)"
+                        required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="name">E-mail<span class="required" id="email">*</span></label>
+                    <input 
+                        type="email" 
+                        id="email"
+                        name="email"
+                        placeholder="Seu melhor e-mail"
+                        required>
+                </div>
+            </div>
+                    
+            <div class="form-2col">
+                <div class="input-wrapper">
+                    <label for="name">Eu sou:<span class="required">*</span></label>
+                    <select name="selectquemsou" id="selectquemsou" aria-placeholder="Corretor ou dono de corretora" required>
+                        <option value="corretor">Corretor</option>
+                        <option value="dono">Dono de corretora</option>
+                    </select>
+                </div>
+                        
+                <div class="input-wrapper">
+                    <label for="name">Mensagem<span class="required" id="mensagem" name="">*</span></label>
+                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem..."
+                    required></textarea>
+                </div>
+            </div>
+            
+        </div>
+        <div class="success">
+            <p id="successmsg">
+                Obrigado, dados enviados com sucesso. Em breve retornaremos seu contato!
+            </p>
+        </div>
+        <button type="submit" id="form-send" class="form-send">enviar
+            <svg id="form-btn" width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.5079 13.2343L6.03445 2.88743C5.87884 2.80146 5.70074 2.76493 5.52385 2.7827C5.34697 2.80048 5.17969 2.87171 5.0443 2.98691C4.9089 3.10212 4.81181 3.25583 4.76595 3.42759C4.72008 3.59935 4.72763 3.781 4.78757 3.94836L8.2657 13.7046C8.34232 13.894 8.34232 14.1058 8.2657 14.2952L4.78757 24.0515C4.72763 24.2189 4.72008 24.4005 4.76595 24.5723C4.81181 24.744 4.9089 24.8977 5.0443 25.0129C5.17969 25.1281 5.34697 25.1994 5.52385 25.2171C5.70074 25.2349 5.87884 25.1984 6.03445 25.1124L24.5079 14.7656C24.6446 14.6899 24.7586 14.579 24.838 14.4443C24.9174 14.3097 24.9593 14.1562 24.9593 13.9999C24.9593 13.8436 24.9174 13.6902 24.838 13.5555C24.7586 13.4209 24.6446 13.31 24.5079 13.2343Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.375 14H15.375" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </form>
+</body>
+</html>
